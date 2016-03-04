@@ -23,12 +23,21 @@ public class RomanControllerImpl implements NumericController {
     @RequestMapping("/{number}")
     public ModelAndView getRomanNumber(@PathVariable("number") int number){
         ModelAndView modelAndView = new ModelAndView("display");
-        modelAndView.addObject("romanValue", "TestView"+number);
+        String romanNumber = romanConversionService.convertToRoman(number);
+        modelAndView.addObject("romanValue", romanNumber);
         return modelAndView;
     }
 
     public RomanConversionService getRomanConversionService() {
         return romanConversionService;
+    }
+
+    public RomanControllerImpl(RomanConversionService romanConversionService) {
+        this.romanConversionService = romanConversionService;
+    }
+
+    public RomanControllerImpl(){
+
     }
 
     public void setRomanConversionService(RomanConversionService romanConversionService) {

@@ -1,5 +1,8 @@
 package com.assignment.Util;
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+
 import java.util.Collections;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -8,7 +11,8 @@ import java.util.TreeMap;
  * Roman Dictionary which maps between numbers and Roman number
  *
  */
-public class RomanDictionary {
+public class RomanDictionary implements InitializingBean,DisposableBean {
+
     private SortedMap<Integer,String> romanDictionaryMap;
 
     public RomanDictionary() {
