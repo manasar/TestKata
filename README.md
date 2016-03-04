@@ -16,5 +16,5 @@ Implementaion
   The path to contoller is http://localhost:8080/convertToRoman/{number}
   ex: http://localhost:8080/convertToRoman/100
   The output is displayed on the browser
-2)Added loggings where ever necessary
+2)Logs added where ever necessary
 3)Application throws IllegalArgumentExpection if the number is out of range ie, [1-3999]
