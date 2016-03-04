@@ -1,5 +1,6 @@
 package com.assignment.Util;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
@@ -12,6 +13,7 @@ import java.util.TreeMap;
  *
  */
 public class RomanDictionary implements InitializingBean,DisposableBean {
+    private static Logger LOGGER = Logger.getLogger(RomanDictionary.class);
 
     private SortedMap<Integer,String> romanDictionaryMap;
 
@@ -31,6 +33,7 @@ public class RomanDictionary implements InitializingBean,DisposableBean {
      * populates the roman dictionary
      */
     public void populateRomanDictionary() {
+        LOGGER.debug("populating the roman dictionary");
         romanDictionaryMap.put(1,"I");
         romanDictionaryMap.put(4,"VI");
         romanDictionaryMap.put(5,"V");

@@ -30,7 +30,7 @@ public class RomanConversionServiceImpl implements RomanConversionService {
      */
     public String convertToRoman(int number) throws IllegalArgumentException {
         StringBuilder result = new StringBuilder();
-        LOGGER.info("Converting the number:"+number+ "to Roman");
+        LOGGER.info("Converting number:"+number+ " to Roman");
 
         if(number >0 && number <=3999) {
             while (number > 0) {
