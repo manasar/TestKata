@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 public class RomanConversionServiceImpl implements RomanConversionService {
 
     private static Logger LOGGER = Logger.getLogger(RomanConversionServiceImpl.class);
+    private static String ERROR_MSG = "Number should be in the range [1-3999]";
     private RomanDictionary romanDictionary;
 
     public RomanConversionServiceImpl(RomanDictionary romanDictionary) {
@@ -27,17 +28,23 @@ public class RomanConversionServiceImpl implements RomanConversionService {
      * @param number- numeric value to be converted
      * @return the converted Roman value
      */
-    public String convertToRoman(int number) {
+    public String convertToRoman(int number) throws IllegalArgumentException {
         StringBuilder result = new StringBuilder();
         LOGGER.info("Converting the number:"+number+ "to Roman");
-        while (number > 0) {
-            for (Integer key : romanDictionary.getRomanDictionaryMap().keySet()) {
-                if (number / key >= 1) {
-                    result = result.append(romanDictionary.getValue(key));
-                    number -= key;
-                    break;
+
+        if(number >0 && number <=3999) {
+            while (number > 0) {
+                for (Integer key : romanDictionary.getRomanDictionaryMap().keySet()) {
+                    if (number / key >= 1) {
+                        result = result.append(romanDictionary.getValue(key));
+                        number -= key;
+                        break;
+                    }
                 }
             }
+        } else {
+            LOGGER.error(ERROR_MSG);
+            throw new IllegalArgumentException(ERROR_MSG);
         }
         LOGGER.info("Roman Number:"+result);
         return result.toString();

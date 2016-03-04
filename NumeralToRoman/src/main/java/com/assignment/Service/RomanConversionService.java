@@ -5,5 +5,5 @@ package com.assignment.Service;
  */
 public interface RomanConversionService {
 
-    String convertToRoman(int number);
+    String convertToRoman(int number) throws IllegalArgumentException;
 }
