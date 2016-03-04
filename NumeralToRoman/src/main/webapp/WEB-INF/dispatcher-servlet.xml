@@ -23,7 +23,7 @@
 
 
     <bean id="romanConversionService" class="com.assignment.Service.RomanConversionServiceImpl">
-
+        <property name="romanDictionary" ref="romanDictionary"/>
     </bean>
 
     <bean id="romanDictionary" class="com.assignment.Util.RomanDictionary">

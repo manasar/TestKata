@@ -1,5 +1,6 @@
 package com.assignment.Service;
 
+import com.assignment.Util.RomanDictionary;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,12 +11,14 @@ import org.junit.Test;
 public class RomanConversionServiceTest {
 
     private RomanConversionService romanConversionService;
+    private RomanDictionary romanDictionary;
 
     @Before
     public void setup() {
-        romanConversionService = new RomanConversionServiceImpl();
+        romanDictionary = new RomanDictionary();
+        romanDictionary.populateRomanDictionary();
+        romanConversionService = new RomanConversionServiceImpl(romanDictionary);
     }
-
 
     @Test
     public void convertToRomanTest_minValue_I(){
@@ -30,7 +33,7 @@ public class RomanConversionServiceTest {
     }
 
     @Test
-    public void convertToRomanTest_RandomValue_MMMCMXCIX(){
+    public void convertToRomanTest_RandomValue_XII(){
         String result = romanConversionService.convertToRoman(12);
         Assert.assertEquals("XII",result);
     }
