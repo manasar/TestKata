@@ -18,6 +18,15 @@
     </bean>
 
     <bean id="romanController" class="com.assignment.Controller.RomanControllerImpl">
+        <property name="romanConversionService" ref="romanConversionService"/>
+    </bean>
+
+
+    <bean id="romanConversionService" class="com.assignment.Service.RomanConversionServiceImpl">
+
+    </bean>
+
+    <bean id="romanDictionary" class="com.assignment.Util.RomanDictionary">
 
     </bean>
 
