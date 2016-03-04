@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="NumeralsToRoman:war">
+    <output-path>$PROJECT_DIR$/NumeralsToRoman/target</output-path>
+    <root id="archive" name="NumeralToRoman.war">
+      <element id="artifact" artifact-name="NumeralsToRoman:war exploded" />
+    </root>
+  </artifact>
+</component>
