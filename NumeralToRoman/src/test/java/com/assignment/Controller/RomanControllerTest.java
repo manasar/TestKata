@@ -5,6 +5,7 @@ import com.assignment.Service.RomanConversionServiceImpl;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.internal.runners.statements.ExpectException;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -34,6 +35,14 @@ public class RomanControllerTest {
         when(romanConversionService.convertToRoman(number)).thenReturn("I");
         ModelAndView modelAndView = numericController.getRomanNumber(number);
         Assert.assertEquals("I",modelAndView.getModel().get("romanValue"));
+    }
+
+
+    @Test(expected = IllegalArgumentException.class)
+    public void getRomanNumber_Number_Exception(){
+        int number = 67779;
+        when(romanConversionService.convertToRoman(number)).thenThrow(new IllegalArgumentException());
+        ModelAndView modelAndView = numericController.getRomanNumber(number);
     }
 
 }
