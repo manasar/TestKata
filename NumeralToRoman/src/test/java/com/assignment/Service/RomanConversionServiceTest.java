@@ -38,4 +38,14 @@ public class RomanConversionServiceTest {
         Assert.assertEquals("XII",result);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void convertToRomanTest_RandomValue_Exception1(){
+        String result = romanConversionService.convertToRoman(0);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void convertToRomanTest_RandomValue_Exception2(){
+        String result = romanConversionService.convertToRoman(5000);
+    }
+
 }
