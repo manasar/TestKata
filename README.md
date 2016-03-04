@@ -3,6 +3,16 @@ Caveat:	Only	support	numbers	between	1	and	3999
 -----
 Logic
 -----
+
+Symbol	Value
+I	1
+V	5
+X	10
+L	50
+C	100
+D	500
+M	1,000
+
 Symbols are placed from left to right in order of value, starting with the largest. However,
 
 I placed before V or X indicates one less, so four is IV (one less than five) and nine is IX (one less than ten)
